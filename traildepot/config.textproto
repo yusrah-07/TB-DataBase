@@ -9,3 +9,96 @@ auth {
   refresh_token_ttl_sec: 2592000
 }
 jobs {}
+record_apis: [{
+  name: "user"
+  table_name: "user"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "book_genre"
+  table_name: "book_genre"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "tag"
+  table_name: "tag"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "post"
+  table_name: "post"
+  acl_world: [CREATE, READ, DELETE, UPDATE]
+}, {
+  name: "shelf"
+  table_name: "shelf"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "review"
+  table_name: "review"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "reader"
+  table_name: "reader"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "book"
+  table_name: "book"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "book_wrapped"
+  table_name: "book_wrapped"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "book_tag"
+  table_name: "book_tag"
+  acl_world: [READ, CREATE, UPDATE, DELETE]
+}, {
+  name: "book_shelf"
+  table_name: "book_shelf"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "book_goal"
+  table_name: "book_goal"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "genre"
+  table_name: "genre"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "goal_progress"
+  table_name: "goal_progress"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "admin"
+  table_name: "admin"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "notification"
+  table_name: "notification"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "moderator"
+  table_name: "moderator"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "like"
+  table_name: "like"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "friend"
+  table_name: "friend"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "club"
+  table_name: "club"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "discussion"
+  table_name: "discussion"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "comment"
+  table_name: "comment"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "author"
+  table_name: "author"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}]
