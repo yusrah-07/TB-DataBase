@@ -1,7 +1,3 @@
-# OI 348 SQL Practical Exercises
-
-_To make the attached class diagrams a reasonable size, you may choose to limit the width of the window to half your VS Code pane._
-
 ## Setup and Use of Trailbase
 
 ### Running Trailbase
