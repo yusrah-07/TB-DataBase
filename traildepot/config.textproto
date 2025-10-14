@@ -78,10 +78,6 @@ record_apis: [{
   table_name: "moderator"
   acl_world: [CREATE, READ, UPDATE, DELETE]
 }, {
-  name: "like"
-  table_name: "like"
-  acl_world: [CREATE, READ, UPDATE, DELETE]
-}, {
   name: "friend"
   table_name: "friend"
   acl_world: [CREATE, READ, UPDATE, DELETE]
@@ -100,5 +96,9 @@ record_apis: [{
 }, {
   name: "author"
   table_name: "author"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "like"
+  table_name: "like"
   acl_world: [CREATE, READ, UPDATE, DELETE]
 }]
