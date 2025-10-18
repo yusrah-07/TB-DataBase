@@ -101,4 +101,8 @@ record_apis: [{
   name: "like"
   table_name: "like"
   acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "temp_user"
+  table_name: "temp_user"
+  acl_world: [CREATE, READ]
 }]
