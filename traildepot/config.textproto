@@ -40,7 +40,11 @@ record_apis: [{
 }, {
   name: "book"
   table_name: "book"
-  acl_world: [CREATE, READ, UPDATE, DELETE]
+  acl_world: [READ, CREATE, UPDATE, DELETE]
+  create_access_rule: "EXISTS(   SELECT 1   FROM reader AS r   WHERE r.user_id = _USER_.id ) OR EXISTS(   SELECT 1   FROM author AS a   WHERE a.user_id = _USER_.id ) OR EXISTS(   SELECT 1   FROM moderator AS m   WHERE m.user_id = _USER_.id ) OR EXISTS(   SELECT 1   FROM admin AS adm   WHERE adm.user_id = _USER_.id )  "
+  read_access_rule: "true "
+  update_access_rule: "( EXISTS(     SELECT 1     FROM reader AS r     WHERE r.user_id = _USER_.id      AND (r.id = reader_id OR r.user_id = user_id)   ) ) OR EXISTS(   SELECT 1   FROM moderator AS m   WHERE m.user_id = _USER_.id ) OR EXISTS(   SELECT 1   FROM admin AS adm   WHERE adm.user_id = _USER_.id )"
+  delete_access_rule: "( EXISTS(     SELECT 1     FROM reader AS r     WHERE r.user_id = _USER_.id      AND (r.id = reader_id OR r.user_id = user_id)   ) ) OR EXISTS(   SELECT 1   FROM moderator AS m   WHERE m.user_id = _USER_.id ) OR EXISTS(   SELECT 1   FROM admin AS adm   WHERE adm.user_id = _USER_.id )"
 }, {
   name: "book_wrapped"
   table_name: "book_wrapped"
