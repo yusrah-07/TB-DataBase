@@ -13,6 +13,7 @@ record_apis: [{
   name: "user"
   table_name: "user"
   acl_world: [CREATE, READ, UPDATE, DELETE]
+  acl_authenticated: [CREATE, READ, UPDATE, DELETE]
 }, {
   name: "book_genre"
   table_name: "book_genre"
