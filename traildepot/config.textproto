@@ -12,189 +12,130 @@ jobs {}
 record_apis: [{
   name: "user"
   table_name: "user"
-  acl_authenticated: [CREATE, READ, UPDATE, DELETE]
-  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Admin\') )"
-  read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
-  update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Admin\') )"
-  delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Admin\') )"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
 }, {
   name: "book_genre"
   table_name: "book_genre"
-  acl_authenticated: [DELETE, UPDATE, READ, CREATE]
-  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
-  read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
-  update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
-  delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Moderator\', \'Admin\') )"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
 }, {
   name: "tag"
   table_name: "tag"
-  acl_authenticated: [CREATE, READ, UPDATE, DELETE]
-  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
-  read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
-  update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
-  delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Moderator\', \'Admin\') )"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
 }, {
   name: "post"
   table_name: "post"
-  acl_authenticated: [DELETE, UPDATE, READ, CREATE]
-  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
-  read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
-  update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
-  delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
 }, {
   name: "shelf"
   table_name: "shelf"
-  acl_authenticated: [DELETE, UPDATE, READ, CREATE]
-  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
-  read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
-  update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
-  delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
+  acl_world: [CREATE, READ, DELETE, UPDATE]
 }, {
   name: "review"
   table_name: "review"
-  acl_authenticated: [DELETE, UPDATE, READ, CREATE]
-  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\') )"
-  read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
-  update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
-  delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
 }, {
   name: "reader"
   table_name: "reader"
-  acl_authenticated: [DELETE, UPDATE, READ, CREATE]
-  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Admin\') )"
-  read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
-  update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Admin\') )"
-  delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Admin\', \'Reader\') )"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
 }, {
   name: "book"
   table_name: "book"
-  acl_authenticated: [CREATE, READ, UPDATE, DELETE]
-  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Admin\') )"
-  read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
-  update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Admin\') )"
-  delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Admin\') )"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
 }, {
   name: "book_wrapped"
   table_name: "book_wrapped"
-  acl_authenticated: [CREATE, READ, UPDATE, DELETE]
-  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Admin\') )"
-  read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\', \'Moderator\') )"
-  update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Admin\') )"
-  delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Admin\') )"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
 }, {
   name: "book_tag"
   table_name: "book_tag"
-  acl_authenticated: [CREATE, READ, UPDATE, DELETE]
-  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
-  read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\', \'Moderator\') )"
-  update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
-  delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
 }, {
   name: "book_shelf"
   table_name: "book_shelf"
-  acl_authenticated: [CREATE, READ, UPDATE, DELETE]
-  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
-  read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
-  update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
-  delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
 }, {
   name: "book_goal"
   table_name: "book_goal"
-  acl_authenticated: [CREATE, READ, UPDATE, DELETE]
-  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\') )"
-  read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
-  update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
-  delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
 }, {
   name: "genre"
   table_name: "genre"
-  acl_authenticated: [DELETE, UPDATE, READ, CREATE]
-  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN ( \'Admin\') )"
-  read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
-  update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN ( \'Admin\') )"
-  delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN ( \'Admin\') )"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
 }, {
   name: "goal_progress"
   table_name: "goal_progress"
-  acl_authenticated: [DELETE, UPDATE, READ, CREATE]
-  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
-  read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
-  update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
-  delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
-}, {
-  name: "admin"
-  table_name: "admin"
-  acl_authenticated: [CREATE, READ, UPDATE, DELETE]
-  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Admin\') )"
-  read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
-  update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Admin\') )"
-  delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Admin\') )"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
 }, {
   name: "notification"
   table_name: "notification"
-  acl_authenticated: [CREATE, READ, UPDATE, DELETE]
-  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Admin\') )"
-  read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\', \'Moderator\') )"
-  update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Admin\') )"
-  delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Admin\') )"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
 }, {
   name: "moderator"
   table_name: "moderator"
-  acl_authenticated: [CREATE, READ, UPDATE, DELETE]
-  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Admin\') )"
-  read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\', \'Moderator\') )"
-  update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Admin\') )"
-  delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Admin\') )"
+  acl_world: [CREATE, READ, DELETE, UPDATE]
 }, {
   name: "friend"
   table_name: "friend"
-  acl_authenticated: [CREATE, READ, UPDATE, DELETE]
-  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\',  \'Admin\') )"
-  read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
-  update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
-  delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
 }, {
   name: "club"
   table_name: "club"
-  acl_authenticated: [DELETE, UPDATE, READ, CREATE]
-  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
-  read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
-  update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
-  delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
 }, {
   name: "discussion"
   table_name: "discussion"
-  acl_authenticated: [DELETE, UPDATE, READ, CREATE]
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "comment"
+  table_name: "comment"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "author"
+  table_name: "author"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "like"
+  table_name: "like"
+  acl_world: [DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "temp_user"
+  table_name: "temp_user"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
+  acl_authenticated: [CREATE, READ, UPDATE, DELETE]
+}, {
+  name: "groups"
+  table_name: "groups"
+  acl_world: [DELETE, UPDATE, READ, CREATE]
+  acl_authenticated: [CREATE, READ, UPDATE, DELETE]
   create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
   read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
   update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
   delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
 }, {
-  name: "comment"
-  table_name: "comment"
-  acl_authenticated: [DELETE, UPDATE, READ, CREATE]
-  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
+  name: "permissions"
+  table_name: "permissions"
+  acl_world: [CREATE, UPDATE, DELETE, READ]
+  acl_authenticated: [CREATE, READ, UPDATE, DELETE]
+  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
   read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
   update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
   delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
 }, {
-  name: "author"
-  table_name: "author"
+  name: "group_members"
+  table_name: "group_members"
+  acl_world: [CREATE, READ, DELETE, UPDATE]
   acl_authenticated: [CREATE, READ, UPDATE, DELETE]
-  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Admin\') )"
+  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
   read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
-  update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Admin\') )"
-  delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Admin\') )"
+  update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
+  delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
 }, {
-  name: "like"
-  table_name: "like"
-  acl_authenticated: [DELETE, UPDATE, READ, CREATE]
-  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
-  read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\', \'Moderator\') )"
-  update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
-  delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Admin\') )"
-}, {
-  name: "temp_user"
-  table_name: "temp_user"
-  acl_world: [CREATE, READ]
+  name: "group_permissions"
+  table_name: "group_permissions"
+  acl_world: [READ, CREATE, UPDATE, DELETE]
+  acl_authenticated: [DELETE, UPDATE, CREATE, READ]
+  create_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
+  read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
+  update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
+  delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
 }]
