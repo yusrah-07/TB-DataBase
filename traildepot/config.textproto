@@ -139,4 +139,8 @@ record_apis: [{
   read_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
   update_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
   delete_access_rule: "EXISTS (   SELECT 1   FROM group_members gm   JOIN groups g ON gm.group_id = g.id   WHERE gm.user_id = _USER_.id AND g.name IN (\'Reader\', \'Author\', \'Moderator\', \'Admin\') )"
+}, {
+  name: "admin"
+  table_name: "admin"
+  acl_world: [CREATE, READ, UPDATE, DELETE]
 }]
